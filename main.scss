@@ -1,0 +1,205 @@
+@use 'variables';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    background-color: variables.$blue;
+    color: #fff;
+    font-family: variables.$font-stack;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#preloader {
+    background: variables.$blue;
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    z-index:100;
+    display: none;
+    opacity: 1;
+
+    &.show {
+        display: grid;
+        place-items: center;
+    }
+
+
+    .geo-alert-window__text {
+        font-size: 1rem;
+        width: 20rem;
+        padding: 0.8rem 1.8rem;
+    
+        background-color: variables.$green;
+        border-radius: 10px;
+    
+        position: absolute;
+        top: 5%;
+        left: 50%;
+        transform: translateX(-50%);
+    
+        display: none;
+    
+        &.show {
+            display: block;
+            animation: appear 0.5s;
+        }
+    }
+    
+    .btn-instructions {
+        text-decoration: none;
+        border: none;
+        background: none;
+        font-size: inherit;
+        margin-left: 0.4rem;
+    
+        border-bottom: 1px dotted #000;
+    }
+    
+    
+    .subtext {
+        font-size: 1rem;
+        width: 30rem;
+        background-color: variables.$grey;
+        padding: 0.8rem 1.8rem;
+        border-radius: 10px;
+        top: 15%;
+        left: 50%;
+        transform: translateX(-50%);
+        opacity: 0;
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+    
+        &.show {
+            opacity: 1;
+            animation: appear 0.5s;
+        }
+    }
+    
+    #loading-text {
+        font-size: 2.2rem;
+        letter-spacing: 4px;
+        position: absolute;
+        z-index: -1;
+    
+        &.hide {
+            display: none;
+        }
+            
+    }
+    
+}
+
+
+/* Main section */
+
+.section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-content: center;
+
+    .location,
+    .uf-index-container,
+    .message {
+        margin: 1.2rem;
+    }
+
+    .location {
+        font-size: 1.8rem;
+        font-weight: 300;
+        text-transform: uppercase;
+    }
+
+    .uf-index-container {
+        text-align: center;
+        grid-row: 1 / 3;
+    }
+
+    .uf-index-text {
+        letter-spacing: 0.8px;
+    }
+
+    .uf-index-number {
+        font-size: 6.4rem;
+        font-weight: 300;
+    }
+
+    .message {
+        font-size: 1.4rem;
+        font-weight: 400;
+        letter-spacing: 1px;
+
+        max-width: 18rem;
+        padding: 0.8rem 1.8rem;
+
+        background-color: variables.$green;
+        border-radius: 10px;
+    }
+
+}
+
+.animate {
+    animation: fadeIn 1s;
+}
+
+span {
+    display: inline-block;
+}
+
+// Animation
+
+@keyframes appear {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0.3;
+        transform: translateY(30%)
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0%)
+    }
+}
+
+// Media queries
+
+@media screen and (max-width: 680px) {
+
+    .geo-alert-window__text {
+        width: 16rem;
+        font-size: 0.8rem;
+    }
+
+    .subtext {
+        width: 18rem;
+        font-size: 0.8rem;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .section {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+}

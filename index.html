@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check the local UF-Index</title>
+    <link href="./main.scss" rel="stylesheet" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+    </style>
+</head>
+<body>
+
+    <div id="preloader" class="show">
+        <div id="geo-alert-window">
+            <p class="geo-alert-window__text">
+            Please allow browser to see your geolocation<button class="btn-instructions">Show instructions</button>
+            </p>
+            <div class="subtext">
+                <p class="settings">
+                    iOS:<br>
+                    1．Open iOS Settings<br>
+                    2．Choose Privacy > Location Services. If the Location Services is disabled, turn it on.<br>
+                    3．Choose Privacy > Location Services > Safari Websites<br>
+                    4．Choose While Using the App under Allow Location Access
+                </p>
+                <p class="settings">
+                    Chrome on Desktop:<br>
+                    1．Click the three dots on the upper right corner of the Chrome browser.<br>
+                    2．Click Settings, then Security and Privacy.<br>
+                    3．Click Site settings.<br>
+                    4．Click Location and check “Sites can ask for your location” is on.<br>
+                    5．If checkyouruv.vercel.com is listed under “Not allowed to see your location”, click Permission > Location > Ask or Allow.
+                </p>
+                <p class="settings">
+                    Safari on Desktop:<br>
+                    1．Open Safari > Preferences > Websites > Location<br>
+                    2．If checkyouruv.vercel.com  is denied to access your location, click Ask or Allow.<br>
+                </p>
+            </div>
+        </div>
+        <div id="loading-text">Loading...</div>
+    </div>
+    <section class="section">
+        <div class="location"></div>
+        <div class="uf-index-container">
+            <div class="uf-index-text">Current UV Index: <br><span class="uf-index-number"></span></div>
+        </div>
+        <div class="message"></div>
+    </section>
+
+    <script defer type="module" src="script.js"></script>
+</body>
+</html>

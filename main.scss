@@ -190,9 +190,10 @@ span {
         font-size: 0.8rem;
     }
 
-    .subtext {
-        width: 18rem;
-        font-size: 0.8rem;
+    #preloader .subtext {
+        width: 24rem;
+        font-size: 1rem;
+        top:18%;
     }
 }
 
@@ -201,5 +202,17 @@ span {
       display: flex;
       flex-direction: column;
       gap: 2rem;
+    }
+
+    #preloader .subtext {
+        width: 20rem;
+        font-size: 0.8rem;
+        top:17%;
+    }
+}
+
+@media screen and (max-height: 750px) {
+    #preloader .subtext {
+        top:18%;
     }
 }
